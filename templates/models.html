@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Model Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='/images/IMG.png') }}" alt="ML Logo" class="logo">
+            <span class="header-text">ChurnPredict</span>
+        </div>
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Predictions</a>
+            <a href="{{ url_for('models') }}">Model Info</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Model Information</h1>
+        <div class="models-grid">
+
+            <div class="model-card">
+                <div class="model-header" onclick="toggleModel(this)">
+                    <h2>TabNet Model</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="model-content">
+                    <p>Attentive tabular deep learning model (.pt) using sequential attention for feature selection.</p>
+                    <ul class="model-details">
+                        <li>Accuracy: 0.865816</li>
+                        <li>F1 Score: 0.859512  </li>
+                        <li>Interpretable feature learning</li>
+                        <li>Handles large datasets well</li>
+                        <li>Sparse attention mechanism</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <div class="model-header" onclick="toggleModel(this)">
+                    <h2>XGBoost Model</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="model-content">
+                    <p>Extreme Gradient Boosting model (.json) with regularization and high accuracy.</p>
+                    <ul class="model-details">
+                        <li>Accuracy: 0.866210</li>
+                        <li>F1 Score: 0.859459</li>
+                        <li>Automatic handling of missing values</li>
+                        <li>Regularization to prevent overfitting</li>
+                        <li>Highly optimized for performance</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <div class="model-header" onclick="toggleModel(this)">
+                    <h2>VQC Model</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="model-content">
+                    <p>Variational Quantum Classifier (.pkl) leveraging quantum circuits for classification tasks.</p>
+                    <ul class="model-details">
+                        <li>Accuracy: 0.83</li>
+                        <li>F1 Score: 0.88</li>
+                        <li>Utilizes quantum computing principles</li>
+                        <li>Potentially beneficial for complex patterns</li>
+                        <li>Exploratory model in machine learning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <div class="model-header" onclick="toggleModel(this)">
+                    <h2>QNN Model</h2>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="model-content">
+                    <p>Quantum Neural Network model (.npz) employing quantum algorithms for data processing.</p>
+                    <ul class="model-details">
+                        <li>Accuracy: 0.74</li>
+                        <li>F1 Score: 0.68</li>
+                        <li>Harnesses quantum mechanics for computation</li>
+                        <li>Can explore high-dimensional feature spaces</li>
+                        <li>Under active research and development</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 ChurnPredict - Advanced Machine Learning Models for Customer Churn Prediction</p>
+    </footer>
+    <script>
+        function toggleModel(element) {
+            const content = element.nextElementSibling;
+            content.classList.toggle('active');
+            const arrow = element.querySelector('.arrow');
+            arrow.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : '';
+        }
+    </script>
+</body>
+</html>
